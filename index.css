@@ -1,91 +1,136 @@
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-body {
-    font-family: Arial, sans-serif;
-    background: #111;
-    color: white;
-    text-align: center;
-}
+    <title>GameZone</title>
 
-header {
-    background: #1b1b1b;
-    padding: 30px;
-    border-bottom: 3px solid #00ff88;
-}
+    <link rel="stylesheet" href="index.css">
+</head>
 
-header h1 {
-    font-size: 35px;
-    margin-bottom: 10px;
-}
+<body>
 
-header p {
-    color: #aaa;
-}
+<header>
 
-main {
-    padding: 40px 20px;
-}
+    <h1>🎮 GAMEZONE</h1>
 
-.juegos {
-    display: flex;
-    justify-content: center;
-    gap: 25px;
-    flex-wrap: wrap;
-}
+    <p>Selecciona tu juego</p>
 
-.juego {
-    width: 250px;
-    padding: 25px;
-    background: #222;
-    border: 2px solid #333;
-    border-radius: 15px;
-}
+</header>
 
-.juego h2 {
-    margin-bottom: 15px;
-}
 
-.juego p {
-    color: #bbb;
-    min-height: 50px;
-}
+<main>
 
-button {
-    margin-top: 15px;
-    padding: 12px 25px;
-    border: none;
-    border-radius: 8px;
-    background: #00ff88;
-    color: #111;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-}
+    <!-- ========================= -->
+    <!-- MENÚ -->
+    <!-- ========================= -->
 
-button:hover {
-    background: #00cc6a;
-    transform: scale(1.05);
-}
+    <section class="juegos">
 
-.pantalla-juego {
-    display: none;
-    margin-top: 40px;
-}
+        <div class="juego">
 
-#gameCanvas {
-    margin-top: 20px;
-    max-width: 100%;
-    background: #000;
-    border: 3px solid #00ff88;
-}
+            <div class="icono">🎮</div>
 
-footer {
-    margin-top: 50px;
-    padding: 20px;
-    background: #1b1b1b;
-    color: #888;
-}
+            <h2>Plataformer</h2>
+
+            <p>
+                Salta, dispara, elimina enemigos
+                y supera los niveles.
+            </p>
+
+            <button onclick="iniciarJuego('plataformer')">
+                JUGAR
+            </button>
+
+        </div>
+
+
+        <div class="juego">
+
+            <div class="icono">🐍</div>
+
+            <h2>Snake</h2>
+
+            <p>
+                Come la comida, crece y consigue
+                la mayor puntuación.
+            </p>
+
+            <button onclick="iniciarJuego('snake')">
+                JUGAR
+            </button>
+
+        </div>
+
+
+        <div class="juego">
+
+            <div class="icono">🚀</div>
+
+            <h2>Space Shooter</h2>
+
+            <p>
+                Destruye enemigos, sobrevive
+                a las oleadas y consigue puntos.
+            </p>
+
+            <button onclick="iniciarJuego('shooter')">
+                JUGAR
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- ========================= -->
+    <!-- PANTALLA DEL JUEGO -->
+    <!-- ========================= -->
+
+    <section id="pantallaJuego">
+
+        <div class="barraJuego">
+
+            <h2 id="tituloJuego"></h2>
+
+            <button onclick="volverMenu()">
+                ⬅ MENÚ
+            </button>
+
+        </div>
+
+
+        <canvas
+            id="gameCanvas"
+            width="900"
+            height="550">
+        </canvas>
+
+
+        <div id="controles">
+
+            <p>
+                🎮 Usa las flechas del teclado
+            </p>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<footer>
+
+    <p>
+        © 2026 GameZone
+    </p>
+
+</footer>
+
+
+<script src="index.js"></script>
+
+</body>
+</html>
