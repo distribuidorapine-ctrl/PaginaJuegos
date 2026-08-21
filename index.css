@@ -1,136 +1,337 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>GameZone</title>
-
-    <link rel="stylesheet" href="index.css">
-</head>
-
-<body>
-
-<header>
-
-    <h1>🎮 GAMEZONE</h1>
-
-    <p>Selecciona tu juego</p>
-
-</header>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
 
 
-<main>
+body {
 
-    <!-- ========================= -->
-    <!-- MENÚ -->
-    <!-- ========================= -->
+    font-family: Arial, sans-serif;
 
-    <section class="juegos">
+    background:
+        radial-gradient(
+            circle at top,
+            #202020,
+            #090909
+        );
 
-        <div class="juego">
+    color: white;
 
-            <div class="icono">🎮</div>
+    min-height: 100vh;
 
-            <h2>Plataformer</h2>
-
-            <p>
-                Salta, dispara, elimina enemigos
-                y supera los niveles.
-            </p>
-
-            <button onclick="iniciarJuego('plataformer')">
-                JUGAR
-            </button>
-
-        </div>
+    text-align: center;
+}
 
 
-        <div class="juego">
+/* ========================= */
+/* HEADER */
+/* ========================= */
 
-            <div class="icono">🐍</div>
+header {
 
-            <h2>Snake</h2>
+    padding: 35px 20px;
 
-            <p>
-                Come la comida, crece y consigue
-                la mayor puntuación.
-            </p>
+    background: #111;
 
-            <button onclick="iniciarJuego('snake')">
-                JUGAR
-            </button>
+    border-bottom:
+        2px solid #00ff88;
 
-        </div>
-
-
-        <div class="juego">
-
-            <div class="icono">🚀</div>
-
-            <h2>Space Shooter</h2>
-
-            <p>
-                Destruye enemigos, sobrevive
-                a las oleadas y consigue puntos.
-            </p>
-
-            <button onclick="iniciarJuego('shooter')">
-                JUGAR
-            </button>
-
-        </div>
-
-    </section>
+    box-shadow:
+        0 0 25px
+        rgba(0,255,136,0.15);
+}
 
 
-    <!-- ========================= -->
-    <!-- PANTALLA DEL JUEGO -->
-    <!-- ========================= -->
+header h1 {
 
-    <section id="pantallaJuego">
+    font-size: 42px;
 
-        <div class="barraJuego">
+    letter-spacing: 3px;
 
-            <h2 id="tituloJuego"></h2>
-
-            <button onclick="volverMenu()">
-                ⬅ MENÚ
-            </button>
-
-        </div>
+    color: #00ff88;
+}
 
 
-        <canvas
-            id="gameCanvas"
-            width="900"
-            height="550">
-        </canvas>
+header p {
+
+    margin-top: 10px;
+
+    color: #aaa;
+
+    font-size: 18px;
+}
 
 
-        <div id="controles">
+/* ========================= */
+/* MENÚ */
+/* ========================= */
 
-            <p>
-                🎮 Usa las flechas del teclado
-            </p>
+main {
 
-        </div>
+    max-width: 1200px;
 
-    </section>
+    margin: auto;
 
-</main>
-
-
-<footer>
-
-    <p>
-        © 2026 GameZone
-    </p>
-
-</footer>
+    padding: 50px 20px;
+}
 
 
-<script src="index.js"></script>
+.juegos {
 
-</body>
-</html>
+    display: flex;
+
+    justify-content: center;
+
+    align-items: stretch;
+
+    gap: 30px;
+
+    flex-wrap: wrap;
+}
+
+
+.juego {
+
+    width: 300px;
+
+    min-height: 350px;
+
+    padding: 30px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #242424,
+            #151515
+        );
+
+    border:
+        1px solid #333;
+
+    border-radius: 20px;
+
+    transition:
+        transform .25s,
+        border .25s,
+        box-shadow .25s;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+}
+
+
+.juego:hover {
+
+    transform:
+        translateY(-10px)
+        scale(1.02);
+
+    border-color:
+        #00ff88;
+
+    box-shadow:
+        0 10px 35px
+        rgba(0,255,136,.15);
+}
+
+
+.icono {
+
+    font-size: 65px;
+
+    margin-bottom: 20px;
+}
+
+
+.juego h2 {
+
+    font-size: 26px;
+
+    margin-bottom: 15px;
+}
+
+
+.juego p {
+
+    color: #aaa;
+
+    line-height: 1.6;
+
+    min-height: 80px;
+}
+
+
+/* ========================= */
+/* BOTONES */
+/* ========================= */
+
+button {
+
+    border: none;
+
+    border-radius: 10px;
+
+    padding:
+        13px 25px;
+
+    margin-top: 20px;
+
+    background:
+        #00ff88;
+
+    color: #06130d;
+
+    font-weight: bold;
+
+    font-size: 16px;
+
+    cursor: pointer;
+
+    transition: .2s;
+}
+
+
+button:hover {
+
+    background:
+        #00d977;
+
+    transform:
+        scale(1.05);
+}
+
+
+button:active {
+
+    transform:
+        scale(.95);
+}
+
+
+/* ========================= */
+/* PANTALLA JUEGO */
+/* ========================= */
+
+#pantallaJuego {
+
+    display: none;
+}
+
+
+.barraJuego {
+
+    display: flex;
+
+    justify-content:
+        space-between;
+
+    align-items: center;
+
+    max-width: 900px;
+
+    margin:
+        0 auto 15px;
+}
+
+
+.barraJuego button {
+
+    margin: 0;
+
+    padding:
+        10px 18px;
+}
+
+
+#tituloJuego {
+
+    color:
+        #00ff88;
+}
+
+
+/* ========================= */
+/* CANVAS */
+/* ========================= */
+
+#gameCanvas {
+
+    display: block;
+
+    width: 100%;
+
+    max-width: 900px;
+
+    height: auto;
+
+    margin: auto;
+
+    background: #050505;
+
+    border:
+        2px solid #00ff88;
+
+    border-radius: 12px;
+
+    box-shadow:
+        0 0 35px
+        rgba(0,255,136,.15);
+}
+
+
+#controles {
+
+    color: #888;
+
+    margin-top: 15px;
+}
+
+
+/* ========================= */
+/* FOOTER */
+/* ========================= */
+
+footer {
+
+    margin-top: 40px;
+
+    padding: 25px;
+
+    background: #111;
+
+    color: #666;
+}
+
+
+/* ========================= */
+/* CELULAR */
+/* ========================= */
+
+@media(max-width:700px) {
+
+    header h1 {
+
+        font-size: 30px;
+    }
+
+
+    .juego {
+
+        width: 100%;
+
+        max-width: 350px;
+    }
+
+
+    .barraJuego {
+
+        flex-direction: column;
+
+        gap: 10px;
+    }
+
+}
