@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Mi Página de Juegos</title>
+
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>🎮 MI PÁGINA DE JUEGOS</h1>
+        <p>Bienvenido a mi colección de juegos</p>
+    </header>
+
+    <main>
+
+        <section class="juegos">
+
+            <div class="juego">
+                <h2>Plataformer</h2>
+                <p>Un juego de plataformas con enemigos.</p>
+                <button onclick="iniciarJuego('plataformer')">
+                    JUGAR
+                </button>
+            </div>
+
+            <div class="juego">
+                <h2>Snake</h2>
+                <p>El clásico juego de la serpiente.</p>
+                <button onclick="iniciarJuego('snake')">
+                    JUGAR
+                </button>
+            </div>
+
+            <div class="juego">
+                <h2>Próximamente</h2>
+                <p>Más juegos estarán disponibles.</p>
+                <button onclick="proximamente()">
+                    VER
+                </button>
+            </div>
+
+        </section>
+
+        <section id="pantallaJuego" class="pantalla-juego">
+
+            <h2 id="tituloJuego">Selecciona un juego</h2>
+
+            <canvas id="gameCanvas" width="800" height="500"></canvas>
+
+            <br>
+
+            <button onclick="volverMenu()">
+                VOLVER AL MENÚ
+            </button>
+
+        </section>
+
+    </main>
+
+    <footer>
+        <p>© 2026 - Mi Página de Juegos</p>
+    </footer>
+
+    <script src="index.js"></script>
+
+</body>
+</html>
